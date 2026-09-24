@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+.env
+*.db
+
+# Dataset/artifact that shouldn't be committed — only structure via .gitkeep
+data/source/*
+data/target/*
+data/artifacts/*
+!data/source/.gitkeep
+!data/target/.gitkeep
+!data/artifacts/.gitkeep
+
+.streamlit/secrets.toml
+.DS_Store
+.idea/
+.vscode/
