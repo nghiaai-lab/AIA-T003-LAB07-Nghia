@@ -59,6 +59,9 @@ docs/
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
+# Chạy end-to-end demo script của Module A
+python scripts/demo_module_a.py
+
 # backend
 uvicorn backend.app.main:app --reload --port 8000
 
@@ -72,6 +75,20 @@ Hoặc bằng Docker Compose:
 docker compose up --build
 ```
 
+## Chạy bộ kiểm thử (Pytest)
+
+```bash
+pytest backend/app/modules/source/tests/ backend/app/modules/batch/tests/ -v
+```
+
 ## Trạng thái
 
-Repo mới scaffold — mỗi module hiện là stub (route/UI placeholder trả `NotImplementedError` hoặc dữ liệu giả). Xem [CONTRIBUTING.md](CONTRIBUTING.md) để biết quy trình PR và ranh giới module trước khi code.
+- **Module A (BanhKhuc04) — Source & Batch**: ✅ **COMPLETED / PRODUCTION READY**
+  - Project Setup (FR 2.1): UI + API + Cấu hình lưu trữ
+  - Source Domain Registry (FR 2.2): Baseline mAP, task-aware embeddings, bootstrap reference subsets
+  - Target Batch Ingestion (FR 2.3): Upload ảnh thật + tạo batch domain shift nhân tạo tất định (Dark, Blur, Noise, JPEG...)
+  - Embedding & Inference Engine (FR 2.4): Batched YOLO inference + trích xuất vector embedding L2-normalized 256-D
+  - Handoff artifacts và API endpoints sẵn sàng cho Module B (`Chien27803`)
+  - Tài liệu chi tiết: [docs/module_a.md](docs/module_a.md)
+- **Module B (Chien27803) — Shift & Slice**: 🟡 STUB
+- **Module C (toilatrung) — Performance & Report**: 🟡 STUB
