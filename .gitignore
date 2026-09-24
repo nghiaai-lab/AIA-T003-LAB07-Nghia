@@ -19,3 +19,11 @@ data/artifacts/*
 .DS_Store
 .idea/
 .vscode/
+
+# Weights, runs, dataset caches
+*.pt
+*.onnx
+runs/
+datasets/
+.pytest_cache/
+.pytest_tmp/
