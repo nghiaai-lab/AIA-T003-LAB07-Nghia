@@ -4,8 +4,10 @@ pydantic
 pydantic-settings
 sqlalchemy
 python-multipart
+jinja2
 
 streamlit
+requests
 
 torch
 ultralytics

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Domain Shift Radar — Report {{ project_name }}</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 960px; margin: 40px auto; padding: 0 16px; color: #1a1a1a; }
+  h1, h2 { color: #1f2933; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+  th, td { border: 1px solid #d3d9de; padding: 8px 12px; text-align: left; font-size: 14px; }
+  th { background: #f1f4f6; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+  .false_alarm { background: #fef3c7; color: #92400e; }
+  .miss { background: #fee2e2; color: #991b1b; }
+  .ok { background: #dcfce7; color: #166534; }
+  .muted { color: #6b7280; font-size: 13px; }
+</style>
+</head>
+<body>
+  <h1>Domain Shift Radar — {{ project_name }}</h1>
+  <p class="muted">Project ID: {{ project_id }} · Xuất lúc: {{ generated_at }}</p>
+
+  <h2>1. Performance Evaluation</h2>
+  {% if evaluations %}
+  <table>
+    <tr><th>Domain/Slice</th><th>Source metric</th><th>Target metric</th><th>Performance drop</th><th># pred</th><th># GT</th></tr>
+    {% for e in evaluations %}
+    <tr>
+      <td>{{ e.domain_or_slice }}</td>
+      <td>{{ "%.3f"|format(e.source_metric) }}</td>
+      <td>{{ "%.3f"|format(e.target_metric) }}</td>
+      <td>{{ "%.3f"|format(e.performance_drop) }}</td>
+      <td>{{ e.num_predictions }}</td>
+      <td>{{ e.num_ground_truth }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Chưa có kết quả evaluation nào.</p>
+  {% endif %}
+
+  <h2>2. Correlation Validator</h2>
+  {% if correlation %}
+  <p>Spearman ρ = <strong>{{ "%.3f"|format(correlation.spearman_rho) }}</strong>,
+     p-value = {{ "%.4f"|format(correlation.p_value) }}, n = {{ correlation.n }}</p>
+  <table>
+    <tr><th>Domain/Slice</th><th>Shift score</th><th>Performance drop</th></tr>
+    {% for r in correlation.records %}
+    <tr><td>{{ r.domain_or_slice }}</td><td>{{ r.shift_score }}</td><td>{{ "%.3f"|format(r.performance_drop) }}</td></tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Chưa có correlation result.</p>
+  {% endif %}
+
+  <h2>3. False Alarm / Miss</h2>
+  {% if failure_cases %}
+  <table>
+    <tr><th>Domain/Slice</th><th>Shift score</th><th>Performance drop</th><th>Loại</th><th>Nhận định</th></tr>
+    {% for c in failure_cases %}
+    <tr>
+      <td>{{ c.domain_or_slice }}</td>
+      <td>{{ c.shift_score }}</td>
+      <td>{{ "%.3f"|format(c.performance_drop) }}</td>
+      <td><span class="badge {{ c.failure_type.value }}">{{ c.failure_type.value }}</span></td>
+      <td>{{ c.note }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Chưa có failure case nào.</p>
+  {% endif %}
+
+  <h2>4. Kết luận</h2>
+  <p class="muted">TODO: điền nhận định và đề xuất hành động cụ thể cho batch/slice rủi ro cao nhất.</p>
+</body>
+</html>

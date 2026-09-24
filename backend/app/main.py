@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 
 from backend.app.core.config import settings
+from backend.app.core.db import init_db
 from backend.app.modules.batch.router import router as batch_router
 from backend.app.modules.correlation.router import router as correlation_router
 from backend.app.modules.evaluation.router import router as evaluation_router
@@ -26,6 +27,11 @@ app.include_router(evaluation_router)
 app.include_router(correlation_router)
 app.include_router(failure_router)
 app.include_router(report_router)
+
+
+@app.on_event("startup")
+def on_startup() -> None:
+    init_db()
 
 
 @app.get("/health")
