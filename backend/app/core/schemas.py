@@ -11,6 +11,7 @@ class EmbeddingRecord(BaseModel):
     embedding: list[float]
     confidence: float
     num_detections: int
+    metadata: dict[str, str] = {}
 
 
 class ShiftScoreRecord(BaseModel):
@@ -19,6 +20,8 @@ class ShiftScoreRecord(BaseModel):
     domain_or_slice: str
     shift_score: float
     num_images: int
+    avg_confidence: float | None = None
+    risk_level: str | None = None
 
 
 class PerformanceRecord(BaseModel):
