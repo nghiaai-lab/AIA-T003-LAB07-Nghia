@@ -16,5 +16,8 @@ scipy
 scikit-learn
 pandas
 pillow
+opencv-python-headless
+plotly
 
 pytest
+httpx
