@@ -4,9 +4,18 @@
 
 | Module | Người phụ trách | Backend (`backend/app/modules/`) | Frontend (`frontend/pages/`) | FR trong docs/spec.md |
 | --- | --- | --- | --- | --- |
-| **A — Source & Batch** | BanhKhuc04 | `source/`, `batch/` | `1_Projects.py`, `2_Source_Baseline.py`, `3_Batch_Analysis.py` | 2.1, 2.2, 2.3, 2.4 |
-| **B — Shift & Slice** | Chien27803 | `shift/`, `slice/` | `4_Slice_Explorer.py` (+ risk dashboard trong Batch Analysis) | 2.5, 2.6, 2.7 |
-| **C — Performance & Report** | toilatrung | `evaluation/`, `correlation/`, `failure/`, `report/` | `5_Performance_Evaluation.py`, `6_Correlation_Report.py`, `7_Failure_Analysis.py`, `8_Export_Report.py` | 2.8, 2.9, 2.10, 2.11 |
+| **A — Source & Batch** | Khúc Việt Anh (`BanhKhuc04`) | `source/`, `batch/` | `1_Projects.py`, `2_Source_Baseline.py`, `3_Batch_Analysis.py` | 2.1, 2.2, 2.3, 2.4 |
+| **B — Shift & Slice** | Nhữ Đình Chiến (`Chien27803`) | `shift/`, `slice/` | `4_Slice_Explorer.py` (+ risk dashboard trong Batch Analysis) | 2.5, 2.6, 2.7 |
+| **C — Performance & Report** | Trịnh Quang Trung (`toilatrung`) | `evaluation/`, `correlation/`, `failure/`, `report/` | `5_Performance_Evaluation.py`, `6_Correlation_Report.py`, `7_Failure_Analysis.py`, `8_Export_Report.py` | 2.8, 2.9, 2.10, 2.11 |
+
+## Vai trò hỗ trợ (không code trong repo)
+
+| Vai trò | Người phụ trách | Việc chính |
+| --- | --- | --- |
+| Slide Designer | Võ Trọng Nghĩa | Chuẩn bị slide thuyết trình / demo |
+| Data Collector | Lê Minh Trí | Thu thập, chuẩn bị dataset source và target cho 3 dev dùng |
+| BA | Ngô Văn Hưng | Đặc tả yêu cầu chi tiết, review tính năng so với `docs/spec.md` |
+| Tester | Nguyễn Đăng Huấn | Kiểm thử chức năng từng module, báo bug qua GitHub Issues |
 
 Mỗi người sở hữu module của mình end-to-end (route FastAPI + logic + trang Streamlit tương ứng). Ranh giới giữa các module là API/schema — không sửa trực tiếp code trong module của người khác, mở issue hoặc PR riêng nếu cần thay đổi.
 

@@ -4,15 +4,19 @@ MVP tool: nhận một batch dữ liệu production chưa có nhãn, đo mức d
 
 Đề bài chi tiết: [docs/spec.md](docs/spec.md).
 
-## Team
+## Team — Nhóm 3, C2 Domain Shift Radar
 
-| Thành viên  | Module                | Phạm vi                                                                 |
-| ----------- | ---------------------- | ------------------------------------------------------------------------ |
-| BanhKhuc04  | A — Source & Batch     | Project Setup, Source Domain Registry, Target Batch Ingestion, Embedding/Inference Engine |
-| Chien27803  | B — Shift & Slice       | Shift Score Engine, Slice Analyzer, Risk Dashboard                      |
-| toilatrung  | C — Performance & Report | Ground Truth/Performance Evaluation, Correlation Validator, False Alarm/Miss Explorer, Report Export |
+| Thành viên | Vai trò | Module / Phạm vi |
+| --- | --- | --- |
+| Nhữ Đình Chiến (Nhóm trưởng, GitHub: `Chien27803`) | Dev — Module B | Shift Score Engine, Slice Analyzer, Risk Dashboard |
+| Khúc Việt Anh (GitHub: `BanhKhuc04`) | Dev — Module A | Project Setup, Source Domain Registry, Target Batch Ingestion, Embedding/Inference Engine |
+| Trịnh Quang Trung (GitHub: `toilatrung`) | Dev — Module C | Ground Truth/Performance Evaluation, Correlation Validator, False Alarm/Miss Explorer, Report Export |
+| Võ Trọng Nghĩa | Slide Designer | Chuẩn bị slide thuyết trình / demo |
+| Lê Minh Trí | Data Collector | Thu thập, chuẩn bị dataset source và target |
+| Ngô Văn Hưng | BA | Đặc tả yêu cầu, review tính năng so với đề bài |
+| Nguyễn Đăng Huấn | Tester | Kiểm thử chức năng, báo bug |
 
-Chi tiết quy trình làm việc, nhánh git, ranh giới module: [CONTRIBUTING.md](CONTRIBUTING.md).
+Chỉ 3 dev (Chiến/Việt Anh/Trung) code trực tiếp trong repo, theo 3 module dọc ở trên. Chi tiết quy trình làm việc, nhánh git, ranh giới module: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Stack
 
